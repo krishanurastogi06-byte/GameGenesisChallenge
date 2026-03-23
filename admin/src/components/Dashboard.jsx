@@ -1,22 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import {
-  Users,
-  CheckCircle,
-  Code,
-  Shield,
-  RefreshCw,
-  LogOut,
-  Trash2,
-  RotateCcw,
-  Trophy,
-  AlertTriangle,
-  LayoutDashboard,
-  Clock,
-  Terminal,
-  Activity,
-  Cpu
-} from 'lucide-react'
+import { Users, CheckCircle, Code, Shield, RefreshCw, LogOut, Trash2, RotateCcw, Trophy, AlertTriangle, Clock, Terminal, Activity, Cpu } from 'lucide-react'
 
 function timeDisplay(d) {
   if (!d) return '-'
@@ -213,8 +197,8 @@ export default function Dashboard({ token, onLogout }) {
                     >
                       <div className="flex items-center gap-6">
                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl border-2 ${i === 0 ? 'bg-yellow-500/10 border-yellow-500/50 text-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.3)]' :
-                            i === 1 ? 'bg-slate-400/10 border-slate-400/50 text-slate-400' :
-                              'bg-amber-600/10 border-amber-600/50 text-amber-600'
+                          i === 1 ? 'bg-slate-400/10 border-slate-400/50 text-slate-400' :
+                            'bg-amber-600/10 border-amber-600/50 text-amber-600'
                           }`}>
                           {i + 1}
                         </div>
