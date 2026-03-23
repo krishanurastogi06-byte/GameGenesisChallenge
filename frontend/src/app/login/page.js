@@ -109,7 +109,7 @@ export default function LoginPage() {
     );
 
     const GenderSelection = ({ name, currentGender, role }) => {
-        const getImagePath = (gender) => `/characters/characterFace/${gender}-${role}.png`;
+        const getImagePath = (gender) => `/characters/characterFace/${gender}-${role}.webp`;
 
         return (
             <div className="gender-selector">

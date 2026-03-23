@@ -121,7 +121,7 @@ export default function Level1Page() {
         <div className="level-wrapper">
             <div
                 className="level-background"
-                style={{ backgroundImage: "url(/seenBackground/seen2.png)" }}
+                style={{ backgroundImage: "url(/seenBackground/seen2.webp)" }}
             ></div>
 
             {/* Story Panel */}
@@ -208,7 +208,7 @@ export default function Level1Page() {
                 <div className="officer-feedback-overlay">
                     <div className="officer-container">
                         <img
-                            src="/characters/SystemCommandOfficer.png"
+                            src="/characters/SystemCommandOfficer.webp"
                             alt="Officer"
                             className="officer-image"
                         />

@@ -13,7 +13,7 @@ export default function Level6Page() {
             <div className="gameplay-overlay"></div>
             <div className="video-background-container">
                 <video autoPlay className="video-background" style={{ opacity: 0.8, filter: 'brightness(0.8)' }}>
-                    <source src="/seenBackground/seen8.mp4" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/dgyrj3shq/video/upload/f_auto,q_auto/v1774265682/seen8_b9wnm0.mp4" type="video/mp4" />
                 </video>
                 <div className="video-overlay-gradient"></div>
             </div>

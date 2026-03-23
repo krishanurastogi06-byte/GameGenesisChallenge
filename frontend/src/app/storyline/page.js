@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from '../../context/SessionContext';
 import '../../style/Storyline.css';
-import Link from 'next/link';
+import Image from 'next/image';
 
 const DIALOGUE_PHASES = {
     OFFICER_PRIMARY: [
@@ -136,9 +136,16 @@ export default function StorylinePage() {
 
     return (
         <div className="story-wrapper" onClick={handleNext}>
-            {/* Background Layer */}
-            <div className={`story-background ${isLoaded ? 'visible' : ''}`}
-                style={{ backgroundImage: 'url(/seenBackground/seen1.png)' }}>
+            {/* Background Layer — using Next.js Image for optimization */}
+            <div className={`story-background ${isLoaded ? 'visible' : ''}`}>
+                <Image
+                    src="/seenBackground/seen1.webp"
+                    alt="Scene background"
+                    fill
+                    priority
+                    sizes="100vw"
+                    style={{ objectFit: 'cover', zIndex: 0 }}
+                />
                 <div className="data-streams"></div>
                 <div className="digital-haze"></div>
             </div>
@@ -154,22 +161,52 @@ export default function StorylinePage() {
             <div className="scene-characters">
                 {/* Officer on Left */}
                 <div className={`character-base officer-pos ${sceneStep >= 1 ? 'on-screen entering' : ''} ${sceneStep === 3 ? 'highlighted' : ''}`}>
-                    <img src="/characters/SystemCommandOfficer.png" alt="Officer" />
+                    <Image
+                        src="/characters/SystemCommandOfficer.webp"
+                        alt="Officer"
+                        width={300}
+                        height={500}
+                        style={{ objectFit: 'contain' }}
+                    />
                 </div>
 
                 {/* Team on Right */}
                 <div className={`team-container ${sceneStep >= 2 ? 'on-screen' : ''}`}>
                     <div className={`character-base team-member leader-unit ${sceneStep >= 2 ? 'entering' : ''} ${[4, 8].includes(sceneStep) ? 'highlighted step-forward' : ''}`}>
-                        <img src={`/characters/${squad.leaderGender}-TeamLeader.png`} alt="Leader" />
+                        <Image
+                            src={`/characters/${squad.leaderGender}-TeamLeader.webp`}
+                            alt="Leader"
+                            width={300}
+                            height={500}
+                            style={{ objectFit: 'contain' }}
+                        />
                     </div>
                     <div className={`character-base team-member member-unit-01 ${sceneStep >= 2 ? 'entering' : ''} ${sceneStep === 5 ? 'highlighted' : ''}`}>
-                        <img src={`/characters/${squad.member1Gender}-Member01.png`} alt="Member 1" />
+                        <Image
+                            src={`/characters/${squad.member1Gender}-Member01.webp`}
+                            alt="Member 1"
+                            width={300}
+                            height={500}
+                            style={{ objectFit: 'contain' }}
+                        />
                     </div>
                     <div className={`character-base team-member member-unit-02 ${sceneStep >= 2 ? 'entering' : ''} ${sceneStep === 6 ? 'highlighted' : ''}`}>
-                        <img src={`/characters/${squad.member2Gender}-Member02.png`} alt="Member 2" />
+                        <Image
+                            src={`/characters/${squad.member2Gender}-Member02.webp`}
+                            alt="Member 2"
+                            width={300}
+                            height={500}
+                            style={{ objectFit: 'contain' }}
+                        />
                     </div>
                     <div className={`character-base team-member member-unit-03 ${sceneStep >= 2 ? 'entering' : ''} ${sceneStep === 7 ? 'highlighted' : ''}`}>
-                        <img src={`/characters/${squad.member3Gender}-Member03.png`} alt="Member 3" />
+                        <Image
+                            src={`/characters/${squad.member3Gender}-Member03.webp`}
+                            alt="Member 3"
+                            width={300}
+                            height={500}
+                            style={{ objectFit: 'contain' }}
+                        />
                     </div>
                 </div>
             </div>

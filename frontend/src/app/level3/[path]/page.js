@@ -103,7 +103,7 @@ export default function Level3Page({ params }) {
     const highlightSyntax = (text) => {
         if (!text) return "";
         let h = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-        
+
         h = h.replace(/(\/\/.*)/g, '<span class="token-comment">$1</span>');
         h = h.replace(/(".*?")/g, '<span class="token-string">$1</span>');
         h = h.replace(/('.*?')/g, '<span class="token-string">$1</span>');
@@ -112,7 +112,7 @@ export default function Level3Page({ params }) {
         h = h.replace(/\b(using|namespace|int|char|return|if|else|for|while|void)\b/g, '<span class="token-keyword">$1</span>');
         h = h.replace(/\b(std|cout|cin|endl|vector|string)\b/g, '<span class="token-builtin">$1</span>');
         h = h.replace(/\b(\d+)\b/g, '<span class="token-number">$1</span>');
-        
+
         return h;
     };
 
@@ -227,7 +227,7 @@ export default function Level3Page({ params }) {
             {showOfficer && (
                 <div className="officer-feedback-overlay">
                     <div className="officer-container">
-                        <img src="/characters/SystemCommandOfficer.png" alt="Officer" className="officer-image" />
+                        <img src="/characters/SystemCommandOfficer.webp" alt="Officer" className="officer-image" />
                     </div>
                     <div className="feedback-dialogue-box">
                         <div className="dialogue-header">SYSTEM COMMAND OFFICER</div>

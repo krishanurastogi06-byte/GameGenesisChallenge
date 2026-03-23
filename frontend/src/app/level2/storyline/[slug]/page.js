@@ -133,7 +133,7 @@ export default function Level2StorylinePage({ params }) {
     return (
         <div className="l2-story-wrapper" onClick={handleNext}>
             <div className="l2-story-background"
-                style={{ backgroundImage: `url(/seenBackground/seen${slug === 'cyber' ? '4A' : '4B'}.png)` }}>
+                style={{ backgroundImage: `url(/seenBackground/seen${slug === 'cyber' ? '4A' : '4B'}.webp)` }}>
             </div>
 
             {/* System Logs */}
@@ -152,22 +152,22 @@ export default function Level2StorylinePage({ params }) {
             <div className="l2-scene-characters">
                 {/* Officer on Left */}
                 <div className={`l2-character-base l2-officer-pos ${isLoaded ? 'entering' : ''} ${step === 1 ? 'highlighted' : ''}`}>
-                    <img src="/characters/SystemCommandOfficer.png" alt="Officer" />
+                    <img src="/characters/SystemCommandOfficer.webp" alt="Officer" />
                 </div>
 
                 {/* Team on Right */}
                 <div className={`l2-team-container ${isLoaded ? 'entering' : ''}`}>
                     <div className={`l2-character-base l2-team-member l2-leader-unit ${isLoaded ? 'entering' : ''} ${currentSpeaker === squad.leaderName ? 'highlighted step-forward' : ''}`}>
-                        <img src={`/characters/${squad.leaderGender}-TeamLeader.png`} alt="Leader" />
+                        <img src={`/characters/${squad.leaderGender}-TeamLeader.webp`} alt="Leader" />
                     </div>
                     <div className={`l2-character-base l2-team-member l2-member-unit-01 ${isLoaded ? 'entering' : ''} ${currentSpeaker === squad.member1 ? 'highlighted' : ''}`}>
-                        <img src={`/characters/${squad.member1Gender}-Member01.png`} alt="Member 1" />
+                        <img src={`/characters/${squad.member1Gender}-Member01.webp`} alt="Member 1" />
                     </div>
                     <div className={`l2-character-base l2-team-member l2-member-unit-02 ${isLoaded ? 'entering' : ''} ${currentSpeaker === squad.member2 ? 'highlighted' : ''}`}>
-                        <img src={`/characters/${squad.member2Gender}-Member02.png`} alt="Member 2" />
+                        <img src={`/characters/${squad.member2Gender}-Member02.webp`} alt="Member 2" />
                     </div>
                     <div className={`l2-character-base l2-team-member l2-member-unit-03 ${isLoaded ? 'entering' : ''} ${currentSpeaker === squad.member3 ? 'highlighted' : ''}`}>
-                        <img src={`/characters/${squad.member3Gender}-Member03.png`} alt="Member 3" />
+                        <img src={`/characters/${squad.member3Gender}-Member03.webp`} alt="Member 3" />
                     </div>
                 </div>
             </div>

@@ -22,11 +22,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
     transition: opacity 2s ease-in-out;
     opacity: 0;
     z-index: 1;
+    overflow: hidden;
 }
 
 .story-background.visible {
@@ -128,9 +127,13 @@
     z-index: 10;
 }
 
-.character-base img {
-    height: 100%;
-    object-fit: contain;
+/* Target both plain <img> and Next.js <Image> (which renders inside a <span>) */
+.character-base img,
+.character-base span > img {
+    height: 100% !important;
+    width: auto !important;
+    object-fit: contain !important;
+    position: static !important;
 }
 
 /* Specific Positions */

@@ -13,7 +13,7 @@ export default function Home() {
     if (!hasFinishedLoading) {
       const timer = setTimeout(() => {
         finishLoading();
-      }, 6000);
+      }, 2500);
       return () => clearTimeout(timer);
     }
   }, [hasFinishedLoading, finishLoading]);

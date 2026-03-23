@@ -18,7 +18,7 @@ export const metadata = {
   title: "Game Genesis Challenge",
   description: "Escape the Oblivion Protocol",
   icons: {
-    icon: '/logo.png',
+    icon: '/logo.webp',
   },
 };
 

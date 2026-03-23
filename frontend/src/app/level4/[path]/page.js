@@ -34,7 +34,7 @@ export default function Level4Page({ params }) {
     // Security Verification
     useEffect(() => {
         if (!content || currentLevel !== 4) {
-             router.replace('/level3/' + path);
+            router.replace('/level3/' + path);
         }
     }, [content, currentLevel, router, path]);
 
@@ -72,10 +72,10 @@ export default function Level4Page({ params }) {
 
     const executeCode = async () => {
         if (!code.trim() || isCompiling) return;
-        
+
         setIsCompiling(true);
         setOutput("Compiling...");
-        
+
         // Map UI languages to Judge0 language IDs
         const languageMap = {
             'cpp': 54,
@@ -104,15 +104,15 @@ export default function Level4Page({ params }) {
             }
 
             const result = await response.json();
-            
+
             let finalOutput = "";
             if (result.stdout !== null && result.stdout !== undefined) finalOutput += result.stdout;
             if (result.stderr !== null && result.stderr !== undefined) finalOutput += "\n" + result.stderr;
             if (result.compile_output !== null && result.compile_output !== undefined) finalOutput += "\n" + result.compile_output;
-            
+
             finalOutput = finalOutput.trim();
             setOutput(finalOutput || "Executed without output.");
-            
+
             validateOutput(finalOutput);
 
         } catch (error) {
@@ -192,9 +192,9 @@ export default function Level4Page({ params }) {
                 <div className="code-editor-section" style={{ margin: '40px 0 0 30px', width: '650px', zIndex: 10 }}>
                     <div className="editor-top-bar">
                         <span className="editor-title">{"<TERMINAL.exe/>"}</span>
-                        <select 
-                            className="language-selector" 
-                            value={language} 
+                        <select
+                            className="language-selector"
+                            value={language}
                             onChange={(e) => setLanguage(e.target.value)}
                         >
                             <option value="cpp">C++ (GCC 9.2)</option>
@@ -203,8 +203,8 @@ export default function Level4Page({ params }) {
                             <option value="c">C (GCC 9.2)</option>
                         </select>
                     </div>
-                    
-                    <textarea 
+
+                    <textarea
                         className="code-editor"
                         value={code}
                         onChange={(e) => setCode(e.target.value)}
@@ -212,7 +212,7 @@ export default function Level4Page({ params }) {
                     />
 
                     <div className="editor-controls">
-                        <button 
+                        <button
                             className={`verify-btn run-code-btn ${isCompiling ? 'disabled' : ''}`}
                             onClick={executeCode}
                             disabled={isCompiling}
@@ -220,7 +220,7 @@ export default function Level4Page({ params }) {
                             {isCompiling ? 'COMPILING...' : 'RUN PIPELINE'}
                         </button>
                     </div>
-                    
+
                     <div className="output-console">
                         <div className="console-header">[ STDOUT / STDERR ]</div>
                         <pre className="console-output">{output}</pre>
@@ -254,7 +254,7 @@ export default function Level4Page({ params }) {
             {showOfficer && (
                 <div className="officer-feedback-overlay">
                     <div className="officer-container">
-                        <img src="/characters/SystemCommandOfficer.png" alt="Officer" className="officer-image" />
+                        <img src="/characters/SystemCommandOfficer.webp" alt="Officer" className="officer-image" />
                     </div>
                     <div className="feedback-dialogue-box">
                         <div className="dialogue-header">SYSTEM COMMAND OFFICER</div>

@@ -222,14 +222,14 @@ export default function Level5Page() {
 
     // Phase: Video Redirect Outcomes
     if (phase === 'success_video') {
-        return <video src="/seenBackground/seen8.mp4" autoPlay className="fullscreen-video" onEnded={() => {
+        return <video src="https://res.cloudinary.com/dgyrj3shq/video/upload/f_auto,q_auto/v1774265682/seen8_b9wnm0.mp4" autoPlay className="fullscreen-video" onEnded={() => {
             completeLevel(6);
             router.replace('/level6');
         }} />
     }
 
     if (phase === 'failure_video') {
-        return <video src="/seenBackground/seen7.mp4" autoPlay className="fullscreen-video" onEnded={() => {
+        return <video src="https://res.cloudinary.com/dgyrj3shq/video/upload/f_auto,q_auto/v1774265666/seen7_yz7tys.mp4" autoPlay className="fullscreen-video" onEnded={() => {
             router.replace('/waiting-room');
         }} />
     }
@@ -241,7 +241,7 @@ export default function Level5Page() {
                 <div className="gameplay-overlay"></div>
                 <div className="video-background-container">
                     <video autoPlay loop muted className="video-background">
-                        <source src="/seenBackground/seen7.mp4" type="video/mp4" />
+                        <source src="https://res.cloudinary.com/dgyrj3shq/video/upload/f_auto,q_auto/v1774265666/seen7_yz7tys.mp4" type="video/mp4" />
                     </video>
                     <div className="video-overlay-gradient" style={{ background: 'rgba(0,0,0,0.85)' }}></div>
                 </div>
@@ -293,7 +293,7 @@ export default function Level5Page() {
 
                         <div className="image-reveal-panel">
                             <div className="image-mask-wrapper">
-                                <img src="/seenBackground/clue/seen4B.png" alt="Obfuscated Core" className="core-image" />
+                                <img src="/seenBackground/clue/seen4B.webp" alt="Obfuscated Core" className="core-image" />
                                 <div className={`mask-segment segment-1 ${solved1 ? 'revealed' : ''}`}></div>
                                 <div className={`mask-segment segment-2 ${solved2 ? 'revealed' : ''}`}></div>
                                 <div className={`mask-segment segment-3 ${solved3 ? 'revealed' : ''}`}></div>
@@ -396,7 +396,7 @@ export default function Level5Page() {
             {/* Video Background */}
             <div className="video-background-container">
                 <video autoPlay loop className="video-background">
-                    <source src="/seenBackground/seen7.mp4" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/dgyrj3shq/video/upload/f_auto,q_auto/v1774265666/seen7_yz7tys.mp4" type="video/mp4" />
                 </video>
                 <div className="video-overlay-gradient"></div>
             </div>
@@ -404,24 +404,24 @@ export default function Level5Page() {
             {/* Characters Layer */}
             <div className="l2-scene-characters">
                 <div className={`l2-character-base l2-officer-pos ${isLoaded ? 'entering' : ''} ${getFocusClass("SYSTEM COMMAND OFFICER", currentSpeaker)}`}>
-                    <img src="/characters/SystemCommandOfficer.png" alt="Officer" />
+                    <img src="/characters/SystemCommandOfficer.webp" alt="Officer" />
                 </div>
 
                 <div className={`l2-team-container ${isLoaded ? 'entering' : ''}`}>
                     <div className={`l2-character-base l2-team-member l2-leader-unit ${getFocusClass("TEAM LEADER", currentSpeaker)}`}>
-                        <img src={`/characters/${squad.leaderGender}-TeamLeader.png`} alt="Leader" />
+                        <img src={`/characters/${squad.leaderGender}-TeamLeader.webp`} alt="Leader" />
                     </div>
 
                     <div className={`l2-character-base l2-team-member l2-member-unit-01 ${getFocusClass("TEAM MEMBER 1", currentSpeaker)}`}>
-                        <img src={`/characters/${squad.member1Gender}-Member01.png`} alt="Member 1" />
+                        <img src={`/characters/${squad.member1Gender}-Member01.webp`} alt="Member 1" />
                     </div>
 
                     <div className={`l2-character-base l2-team-member l2-member-unit-02 ${getFocusClass("TEAM MEMBER 2", currentSpeaker)}`}>
-                        <img src={`/characters/${squad.member2Gender}-Member02.png`} alt="Member 2" />
+                        <img src={`/characters/${squad.member2Gender}-Member02.webp`} alt="Member 2" />
                     </div>
 
                     <div className={`l2-character-base l2-team-member l2-member-unit-03 dimmed`}>
-                        <img src={`/characters/${squad.member3Gender}-Member03.png`} alt="Member 3" />
+                        <img src={`/characters/${squad.member3Gender}-Member03.webp`} alt="Member 3" />
                     </div>
                 </div>
             </div>
