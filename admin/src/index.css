@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+    --color-gaming-black: #050505;
+    --color-gaming-deep-gray: #0a0a0a;
+    --color-gaming-blue: #00d2ff;
+    --color-gaming-dark-blue: #00458b;
+    --color-gaming-accent: #3b82f6;
+
+    --shadow-neon: 0 0 15px rgba(0, 210, 255, 0.4);
+    --shadow-neon-strong: 0 0 25px rgba(0, 210, 255, 0.6);
+
+    --animate-pulse-glow: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+    }
+
+    50% {
+        opacity: 0.8;
+        box-shadow: 0 0 25px rgba(0, 210, 255, 0.6);
+    }
+}
+
+@layer base {
+    body {
+        background-color: var(--color-gaming-black);
+        color: white;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+@layer utilities {
+    .gaming-gradient {
+        background: linear-gradient(135deg, #050505 0%, #001a33 100%);
+    }
+
+    .glass-card {
+        background: rgba(10, 10, 10, 0.6);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(0, 210, 255, 0.1);
+    }
+
+    .neon-border {
+        border: 1px solid rgba(0, 210, 255, 0.3);
+        box-shadow: 0 0 10px rgba(0, 210, 255, 0.1);
+    }
+
+    .neon-text {
+        text-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
+    }
+}

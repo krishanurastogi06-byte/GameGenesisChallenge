@@ -1,0 +1,124 @@
+.waiting-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050000;
+    color: #ff003c;
+    font-family: 'Consolas', 'Monaco', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.waiting-content {
+    width: 800px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.critical-header {
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: 15px;
+    margin-bottom: 50px;
+    text-shadow: 0 0 20px rgba(255, 0, 60, 0.6);
+    animation: flicker-red 2s infinite;
+}
+
+.storyline-scroll {
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.story-line {
+    font-size: 16px;
+    color: #fff;
+    opacity: 0;
+    animation: fade-in-line 0.5s forwards;
+    letter-spacing: 1px;
+}
+
+.countdown-container {
+    padding: 30px;
+    border: 1px solid rgba(255, 0, 60, 0.3);
+    background: rgba(255, 0, 60, 0.05);
+}
+
+.countdown-label {
+    font-size: 12px;
+    opacity: 0.6;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.countdown-timer {
+    font-size: 72px;
+    font-weight: bold;
+    color: #ff003c;
+    text-shadow: 0 0 30px rgba(255, 0, 60, 0.4);
+}
+
+.waiting-footer {
+    margin-top: 40px;
+    font-size: 11px;
+    opacity: 0.4;
+    letter-spacing: 4px;
+}
+
+@keyframes flicker-red {
+
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+        opacity: 1;
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes fade-in-line {
+    to {
+        opacity: 1;
+    }
+}

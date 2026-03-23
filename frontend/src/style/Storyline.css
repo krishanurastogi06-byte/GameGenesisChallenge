@@ -1,0 +1,355 @@
+:root {
+    --dialogue-bg: rgba(0, 15, 25, 0.85);
+    --dialogue-border: var(--neon-cyan-faint);
+    --dialogue-glow: rgba(0, 243, 255, 0.1);
+}
+
+.story-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: default;
+}
+
+.story-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 2s ease-in-out;
+    opacity: 0;
+    z-index: 1;
+}
+
+.story-background.visible {
+    opacity: 1;
+}
+
+.skip-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.3s ease;
+    background-color: #ffffff3a;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+}
+
+.skip-button:hover {
+    background: var(--neon-cyan);
+    color: #fff;
+    background-color: #242424;
+}
+
+/* Background Animated Overlay */
+.data-streams {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(0, 243, 255, 0.03) 3px,
+            transparent 4px);
+    pointer-events: none;
+    z-index: 2;
+    animation: stream-scroll 20s linear infinite;
+}
+
+@keyframes stream-scroll {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 1000px;
+    }
+}
+
+.digital-haze {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 30%, rgba(0, 5, 15, 0.4) 100%);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Characters Container */
+.scene-characters {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 5;
+    padding: 0 5%;
+}
+
+.character-base {
+    position: absolute;
+    height: 90%;
+    transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: brightness(0.3) grayscale(0.2);
+    opacity: 0;
+}
+
+.character-base.entering {
+    opacity: 1;
+}
+
+.character-base.highlighted {
+    filter: brightness(1.1) grayscale(0) drop-shadow(0 0 15px var(--neon-cyan-faint));
+    transform: scale(1.02);
+    z-index: 10;
+}
+
+.character-base img {
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Specific Positions */
+.officer-pos {
+    left: -200px;
+    /* Hidden initially */
+}
+
+.officer-pos.on-screen {
+    left: 15%;
+}
+
+.team-container {
+    position: absolute;
+    right: -500px;
+    /* Hidden initially */
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    transition: all 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.team-container.on-screen {
+    right: 5%;
+}
+
+.team-member {
+    position: absolute;
+    height: 100%;
+}
+
+.leader-unit {
+    z-index: 8;
+    right: 350px;
+    height: 95%;
+    /* Leader slightly larger/taller framing */
+    transition: transform 0.5s ease;
+}
+
+.leader-unit.step-forward {
+    transform: translateX(-30px) scale(1.05);
+}
+
+.member-unit-01 {
+    right: 200px;
+    height: 85%;
+    z-index: 7;
+}
+
+.member-unit-02 {
+    right: 100px;
+    height: 85%;
+    z-index: 6;
+}
+
+.member-unit-03 {
+    right: 0px;
+    height: 85%;
+    z-index: 5;
+}
+
+/* Dialogue Overlay */
+.dialogue-system {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.dialogue-box {
+    position: absolute;
+    background: var(--dialogue-bg);
+    border: 1px solid var(--dialogue-border);
+    padding: 30px 45px;
+    box-shadow: 0 0 30px var(--dialogue-glow), inset 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 650px;
+    min-width: 450px;
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Floating Triangle Pointer */
+.dialogue-box.left-view::after {
+    left: 40px;
+    transform: none;
+}
+
+.dialogue-box.right-view::after {
+    left: auto;
+    right: 40px;
+    transform: none;
+}
+
+.dialogue-speaker {
+    font-size: 10px;
+    color: var(--neon-cyan);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.dialogue-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #fff;
+    min-height: 4.5em;
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background: var(--neon-cyan);
+    margin-left: 4px;
+    vertical-align: middle;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.click-prompt {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--neon-cyan);
+    font-size: 10px;
+    letter-spacing: 3px;
+    opacity: 0.6;
+    animation: pulse-op 2s infinite ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes pulse-op {
+
+    0%,
+    100% {
+        opacity: 0.2;
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1.05);
+    }
+}
+
+/* Glitch Transitions */
+.glitch-flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.glitch-flash.active {
+    animation: flash-anim 0.3s steps(2);
+}
+
+@keyframes flash-anim {
+    0% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.1;
+        transform: skewX(10deg);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Audio Hint Layer (Visualized) */
+.audio-status {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 4px;
+    z-index: 100;
+    opacity: 0.4;
+}
+
+.audio-bar {
+    width: 2px;
+    background: var(--neon-cyan);
+    animation: bar-dance 1s infinite alternate;
+}
+
+@keyframes bar-dance {
+    from {
+        height: 4px;
+    }
+
+    to {
+        height: 12px;
+    }
+}
